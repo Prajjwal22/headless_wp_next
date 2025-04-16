@@ -17,7 +17,7 @@ export default async function ListCard({ post }: postProps) {
   const category = post.categories.nodes[0].name;
   const slug = post.slug;
 
-  // const placeholder = await getBlurImage(featuredImage);
+  const placeholder = await getBlurImage(featuredImage);
 
   return (
     <div className={styles.listCard}>
@@ -43,8 +43,8 @@ export default async function ListCard({ post }: postProps) {
           height={100}
           src={`${featuredImage}.webp`}
           alt={post.title}
-          // placeholder="blur"
-          // blurDataURL={placeholder?.base64}
+          placeholder="blur"
+          blurDataURL={placeholder?.base64}
         />
       </div>
     </div>

@@ -17,9 +17,8 @@ export default async function OverlayCard({ post }: postProps) {
   const pubDate = post.modified;
   const slug = post.slug;
 
-  // const placeholder = await getBlurImage(featuredImage);
+  const placeholder = await getBlurImage(featuredImage);
 
-  // console.log(placeholder)
 
 
   return (
@@ -32,8 +31,8 @@ export default async function OverlayCard({ post }: postProps) {
             height="500"
             priority
             alt="featured image"
-            // placeholder="blur"
-            // blurDataURL={placeholder?.base64}
+            placeholder="blur"
+            blurDataURL={placeholder.base64}
           />
 
           <div className={styles.overlayGradient}></div>

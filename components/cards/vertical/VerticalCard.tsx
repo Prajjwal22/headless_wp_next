@@ -2,14 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./VerticalCard.module.scss";
-import { formatDate, getBlurImage } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 
 type postProps = {
   post: Posts;
   catSlug?: string;
+  blurPlaceholder?: string;
 };
 
-export default  function VerticalCard({ post, catSlug }: postProps) {
+export default function VerticalCard({ post, catSlug, blurPlaceholder }: postProps) {
   const featuredImage = post.featuredImage?.node?.sourceUrl || "/featured.png";
   const postTitle = post.title;
   const authorName = post.author?.node?.name || "Editorial Staff";
@@ -23,8 +24,6 @@ export default  function VerticalCard({ post, catSlug }: postProps) {
   const fullCatSlug =
     catSlug === undefined ? post?.categories?.nodes[0]?.slug : catSlug;
 
-  // const placeholder = await getBlurImage(featuredImage);
-
   return (
     <div className={styles.card}>
       <div className={styles.cardWrapper}>
@@ -35,8 +34,10 @@ export default  function VerticalCard({ post, catSlug }: postProps) {
               width={400}
               height={300}
               alt={postTitle}
-              // placeholder="blur"
-              // blurDataURL={placeholder?.base64}
+              {...(blurPlaceholder ? {
+                placeholder: "blur",
+                blurDataURL: blurPlaceholder
+              } : {})}
             />
           </Link>
         </div>
