@@ -23,7 +23,10 @@ export default async function page({
 export async function generateStaticParams() {
   const pages = await getAllPages();
 
-  return pages.map((page: Posts) => ({
+
+  const limitedPages = pages.slice(0, 4);
+
+  return limitedPages.map((page: Posts) => ({
     slug: page.slug,
   }));
 }

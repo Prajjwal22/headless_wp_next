@@ -15,8 +15,11 @@ export default function SinglePostPage({ params }: Props) {
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   const posts = await getAllParams();
+  
+  // Limit to first 4 posts for static generation
+  const limitedPosts = posts.slice(0, 4);
 
-  return posts.map((post: Posts) => ({
+  return limitedPosts.map((post: Posts) => ({
     slug: post.slug,
   }));
 }

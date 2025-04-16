@@ -20,7 +20,9 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 export async function generateStaticParams() {
   const categories = await getAllCategories();
 
-  return categories.map((cat: Posts) => ({
+
+  const limitedCategories = categories.slice(0, 4);
+  return limitedCategories.map((cat: Posts) => ({
     slug: cat.slug,
   }));
 }
