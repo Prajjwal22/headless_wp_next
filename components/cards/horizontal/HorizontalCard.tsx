@@ -18,7 +18,7 @@ export default async function HorizontalCard({ post }: postProps) {
   const excerpt = post.excerpt;
   const slug = post.slug;
 
-  const placeholder = await getBlurImage(featuredImage);
+  // const placeholder = await getBlurImage(featuredImage);
 
   return (
     <div className={styles.card}>
@@ -30,8 +30,8 @@ export default async function HorizontalCard({ post }: postProps) {
               width={400}
               height={300}
               alt={postTitle}
-              placeholder="blur"
-              blurDataURL={placeholder.base64}
+              // placeholder="blur"
+              // blurDataURL={placeholder?.base64}
             />
           </Link>
         </div>

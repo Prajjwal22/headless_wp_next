@@ -16,12 +16,14 @@ export default async function PostPage({ slug }: SingleProps) {
     (relPost: Posts) => relPost.title !== post.title
   );
 
-  const placeholder = await getBlurImage(
-    post.featuredImage?.node?.sourceUrl || "/featured.png"
-  );
+  // const placeholder = await getBlurImage(
+  //   post.featuredImage?.node?.sourceUrl || "/featured.png"
+  // );
   return (
     <>
-      <SinglePost post={post} placeholder={placeholder.base64} />
+      {/* <SinglePost post={post} placeholder={placeholder?.base64} /> */}
+      <SinglePost post={post} />
+
       <RelatedPosts relatedPosts={relatedPosts} />
     </>
   );

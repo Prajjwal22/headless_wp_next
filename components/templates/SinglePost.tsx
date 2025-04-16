@@ -11,7 +11,7 @@ import { formatDate } from "@/lib/utils";
 
 type props = {
   post: Posts;
-  placeholder: string;
+  placeholder?: string;
 };
 
 export default function SinglePost({ post, placeholder }: props) {

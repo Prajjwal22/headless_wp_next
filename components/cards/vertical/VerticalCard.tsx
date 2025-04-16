@@ -9,7 +9,7 @@ type postProps = {
   catSlug?: string;
 };
 
-export default async function VerticalCard({ post, catSlug }: postProps) {
+export default  function VerticalCard({ post, catSlug }: postProps) {
   const featuredImage = post.featuredImage?.node?.sourceUrl || "/featured.png";
   const postTitle = post.title;
   const authorName = post.author?.node?.name || "Editorial Staff";
@@ -23,7 +23,7 @@ export default async function VerticalCard({ post, catSlug }: postProps) {
   const fullCatSlug =
     catSlug === undefined ? post?.categories?.nodes[0]?.slug : catSlug;
 
-  const placeholder = await getBlurImage(featuredImage);
+  // const placeholder = await getBlurImage(featuredImage);
 
   return (
     <div className={styles.card}>
@@ -35,8 +35,8 @@ export default async function VerticalCard({ post, catSlug }: postProps) {
               width={400}
               height={300}
               alt={postTitle}
-              placeholder="blur"
-              blurDataURL={placeholder.base64}
+              // placeholder="blur"
+              // blurDataURL={placeholder?.base64}
             />
           </Link>
         </div>
